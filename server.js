@@ -1,0 +1,16 @@
+const express = require('express');
+const app = express();
+app.use(express.json());
+// setting up dotenv
+require('dotenv').config({ path: './config/.env' });
+// mongoose setup
+const connectDB = require('./database/connectDB');
+connectDB();
+//routes
+app.use('/register', require('./routes/register'));
+app.use('/login', require('./routes/login'));
+// creating server on port 5000
+app.listen(
+  process.env.PORT || 5000,
+  console.log('connected on port ', process.env.PORT)
+);
