@@ -7,6 +7,10 @@ require('dotenv').config({ path: './config/.env' });
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+//check for authorisation _______________
+router.get('/auth', authMiddleware, (req, res) => {
+  res.json({ msg: 'authorised' });
+});
 // load connected users
 router.get('/', authMiddleware, (req, res) => {
   User.findById(req.userId)
@@ -39,9 +43,7 @@ router.post(
     User.findOne({ name: req.body.name }).then((user) => {
       console.log('user: ', user);
       if (!user) {
-        return res
-          .status(404)
-          .json({ errors: [{ msg: 'please register first' }] });
+        return res.status(404).json({ errors: [{ msg: 'please register first' }] });
       }
       bcrypt.compare(req.body.password, user.password, (err2, isMatch) => {
         if (err2) {

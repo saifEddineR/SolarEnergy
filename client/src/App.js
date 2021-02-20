@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -9,6 +10,7 @@ import Navbar from './Components/Navbar';
 import Login from './pages/Login';
 import PrivateRoute from './Components/PrivateRoute';
 import ControlPanel from './pages/ControlPanel';
+
 function App() {
   return (
     <Router>

@@ -6,11 +6,17 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   LOGOUT,
+  CHECK_USER,
+  GET_PRODUCTS,
+  GET_PROJECTS,
+  GET_SERVICES,
 } from '../action/types';
 let initState = {
   token: localStorage.getItem('token'),
-  user: null,
   isAuth: false,
+  projects: null,
+  products: null,
+  services: null,
   errors: null,
 };
 
@@ -20,6 +26,8 @@ const authReducer = (state = initState, { type, payload }) => {
     case REGISTER_SUCCESS:
       localStorage.setItem('token', payload.token);
       return { ...state, isAuth: true, token: payload.token };
+    case CHECK_USER:
+      return { ...state, isAuth: true };
     case LOGIN_FAIL:
     case REGISTER_FAIL:
       localStorage.removeItem('token');
@@ -34,6 +42,13 @@ const authReducer = (state = initState, { type, payload }) => {
         isAuth: false,
         errors: null,
       };
+    // get data cases ______________
+    case GET_PRODUCTS:
+      return { ...state, products: payload };
+    case GET_PROJECTS:
+      return { ...state, projects: payload };
+    case GET_SERVICES:
+      return { ...state, services: payload };
     default:
       return state;
   }

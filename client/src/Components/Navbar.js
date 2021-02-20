@@ -1,21 +1,35 @@
 import React from 'react';
+import '../css/navbar.css';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../action/authActions';
+import { Button } from 'react-bootstrap';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const logout = () => {};
 
   return (
-    <div>
-      <Link to='/'>Home</Link>
-      <Link to='/contact'>Contact</Link>
-      <Link to='/products'>Products</Link>
-      <Link to='/services'>Services</Link>
-      <Link to='/projects'>Projects</Link>
-      {auth.isAuth ? <Link onClick={() => dispatch(logoutUser())}>Logout</Link> : <></>}
+    <div className='navbar'>
+      {auth.isAuth ? (
+        <div className='nav_logout' >
+          <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
+            <span id='logout-icon'>
+              <RiLogoutBoxLine />
+            </span>
+            <span className='logout-text'>Logout</span>
+          </Link>
+        </div>
+      ) : (
+        <span>
+          <Link to='/'>Home</Link>
+          <Link to='/contact'>Contact</Link>
+          <Link to='/products'>Products</Link>
+          <Link to='/services'>Services</Link>
+          <Link to='/projects'>Projects</Link>
+        </span>
+      )}
     </div>
   );
 };

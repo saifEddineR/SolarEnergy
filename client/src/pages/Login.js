@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { loginUser } from '../action/authActions';
+import { loginUser, checkUser } from '../action/authActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Login = ({ history }) => {
@@ -13,10 +13,10 @@ const Login = ({ history }) => {
     if (auth.isAuth) {
       return history.push('/control-panel');
     }
-    // else if (!auth.isAuth) {
-    //   return history.push('/login');
-    // }
   }, [auth.isAuth]);
+  useEffect(() => {
+    dispatch(checkUser());
+  }, []);
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });

@@ -6,6 +6,10 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   LOGOUT,
+  CHECK_USER,
+  GET_PRODUCTS,
+  GET_PROJECTS,
+  GET_SERVICES,
 } from './types';
 import axios from 'axios';
 export const registerInfo = (info) => (dispatch) => {
@@ -59,8 +63,38 @@ export const loginUser = (data) => (dispatch) => {
     });
 };
 
+export const checkUser = () => (dispatch) => {
+  axios
+    .get('/login/auth', { headers: { 'auth-token': localStorage.getItem('token') } })
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: CHECK_USER,
+      });
+    })
+    .catch((err) => console.log(err));
+};
 export const logoutUser = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
+};
+// get data from database (projects, products, services) _________
+export const getProducts = () => (dispatch) => {
+  axios
+    .get('/products')
+    .then((res) => dispatch({ type: GET_PRODUCTS, payload: res.data }))
+    .catch((err) => console.log(err));
+};
+export const getProjects = () => (dispatch) => {
+  axios
+    .get('/projects')
+    .then((res) => dispatch({ type: GET_PROJECTS, payload: res.data }))
+    .catch((err) => console.log(err));
+};
+export const getServices = () => (dispatch) => {
+  axios
+    .get('/services')
+    .then((res) => dispatch({ type: GET_SERVICES, payload: res.data }))
+    .catch((err) => console.log(err));
 };
