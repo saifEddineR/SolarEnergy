@@ -10,6 +10,15 @@ import {
   GET_PRODUCTS,
   GET_PROJECTS,
   GET_SERVICES,
+  ADD_PRODUCTS,
+  ADD_PROJECTS,
+  ADD_SERVICES,
+  EDIT_PRODUCTS,
+  EDIT_PROJECTS,
+  EDIT_SERVICES,
+  DELETE_PRODUCTS,
+  DELETE_PROJECTS,
+  DELETE_SERVICES,
 } from '../action/types';
 let initState = {
   token: localStorage.getItem('token'),

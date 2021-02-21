@@ -11,7 +11,9 @@ import {
   GET_PROJECTS,
   GET_SERVICES,
 } from './types';
+
 import axios from 'axios';
+
 export const registerInfo = (info) => (dispatch) => {
   axios
     .post('/login', info)

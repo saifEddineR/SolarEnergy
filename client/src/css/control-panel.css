@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.control-panel {
+  background-color: #dee5ed;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.control-sidebar {
+  grid-column: 1/2;
+  align-items: center;
+  background-color: #2b3340;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 250px;
+  width: 300px;
+}
+.control-sidebar * {
+  color: #dee5ed;
+  align-items: flex-start;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.6px;
+}
+.control-link {
+  display: flex;
+  align-items: flex-end;
+}
+.control-link:hover {
+  color: white;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+.control-link:hover * {
+  color: white;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+.control-link * {
+  font-size: 25px;
+  padding-right: 5px;
+}

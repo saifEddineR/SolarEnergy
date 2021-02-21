@@ -14,3 +14,15 @@ export const CHECK_USER = 'CHECK_USER';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PROJECTS = 'GET_PROJECTS';
 export const GET_SERVICES = 'GET_SERVICES';
+
+export const ADD_PRODUCTS = 'ADD_PRODUCTS';
+export const ADD_PROJECTS = 'ADD_PROJECTS';
+export const ADD_SERVICES = 'ADD_SERVICES';
+
+export const EDIT_PRODUCTS = 'EDIT_PRODUCTS';
+export const EDIT_PROJECTS = 'EDIT_PROJECTS';
+export const EDIT_SERVICES = 'EDIT_SERVICES';
+
+export const DELETE_PRODUCTS = 'DELETE_PRODUCTS';
+export const DELETE_PROJECTS = 'DELETE_PROJECTS';
+export const DELETE_SERVICES = 'DELETE_SERVICES';
