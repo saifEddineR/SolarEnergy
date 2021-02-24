@@ -41,7 +41,6 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     User.findOne({ name: req.body.name }).then((user) => {
-      console.log('user: ', user);
       if (!user) {
         return res.status(404).json({ errors: [{ msg: 'please register first' }] });
       }

@@ -98,5 +98,5 @@ export const getServices = () => (dispatch) => {
   axios
     .get('/services')
     .then((res) => dispatch({ type: GET_SERVICES, payload: res.data }))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log('services get request', err));
 };

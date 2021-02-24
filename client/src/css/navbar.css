@@ -5,6 +5,7 @@
   grid-template-columns: 1fr 2fr 2fr 100px;
   width: 100%;
   grid-gap: 20px;
+  background-color: black;
 }
 .navbar span {
   text-decoration: none;
@@ -15,12 +16,13 @@
 }
 /* logout button */
 .nav_logout {
+  transform: scale(1.1);
   grid-column: 4/5;
 }
 .navbar #logout {
   justify-items: center;
   align-items: center;
-  background-color: black;
+  background-color: white;
   height: 40px;
   width: 43px;
   display: flex;
@@ -31,6 +33,7 @@
 
 #logout:hover {
   width: 115px;
+  transform: scale(1.1);
   text-decoration: none !important;
 }
 #logout:hover .logout-text {
@@ -38,7 +41,7 @@
   text-decoration: none !important;
 }
 .navbar #logout * {
-  color: #dee5ed;
+  color: black;
 }
 #logout-icon {
   margin: 0;

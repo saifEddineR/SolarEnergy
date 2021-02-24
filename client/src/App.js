@@ -1,5 +1,6 @@
-import './App.css';
+import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -12,9 +13,10 @@ import PrivateRoute from './Components/PrivateRoute';
 import ControlPanel from './pages/ControlPanel';
 
 function App() {
+  const auth = useSelector((state) => state.auth.isAuth);
   return (
     <Router>
-      <Navbar />
+      {!auth ? <Navbar /> : <></>}
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/contact' component={Contact} />

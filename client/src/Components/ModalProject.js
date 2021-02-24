@@ -1,49 +1,48 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { addProduct, editProduct } from '../action/AdminActions';
+import { addProject, editProject } from '../action/AdminActions';
 import { FiEdit } from 'react-icons/fi';
 import { AiFillFileAdd } from 'react-icons/ai';
 
-function ModalButton({ showedit, product }) {
+function ModalProject({ showedit, project }) {
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = useState(false);
+  const [file, setFile] = useState(null);
   const [input, setInput] = useState({
-    name: '',
+    title: '',
     img: '',
     desc: '',
-    price: 0,
-    status: true,
   });
   const handleInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    product ? dispatch(editProduct(product._id, input)) : dispatch(addProduct(input));
+    project
+      ? dispatch(editProject(project._id, input))
+      : dispatch(addProject(input, file));
     setInput({
-      name: '',
+      title: '',
       img: '',
       desc: '',
-      price: 0,
-      status: true,
     });
     setModalShow(false);
   };
-  const handleProduct = (e) => {
+  const handleProject = (e) => {
     setModalShow(true);
-    setInput(product);
+    setInput(project);
+  };
+  const handleFile = (e) => {
+    setFile(e.target.files[0]);
   };
 
   return (
     <>
       {showedit ? (
-        <FiEdit onClick={() => handleProduct()} className='edit-icon icons' />
+        <FiEdit onClick={() => handleProject()} className='edit-icon icons' />
       ) : (
         <AiFillFileAdd className='add-icon' onClick={() => setModalShow(true)} />
-        // <Button variant='primary' onClick={() => setModalShow(true)}>
-        //   Add a Product
-        // </Button>
       )}
       <Modal
         show={modalShow}
@@ -53,23 +52,23 @@ function ModalButton({ showedit, product }) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id='contained-modal-title-vcenter'>Add a new Product</Modal.Title>
+          <Modal.Title id='contained-modal-title-vcenter'>Add a new Project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId='formGroupName'>
-              <Form.Label>Product name</Form.Label>
+              <Form.Label>Project name</Form.Label>
               <Form.Control
                 required
-                value={input.name}
-                name='name'
+                value={input.title}
+                name='title'
                 onChange={handleInput}
                 type='text'
                 placeholder='Enter a product name'
               />
             </Form.Group>
             <Form.Group controlId='formGroupDesc'>
-              <Form.Label>Product description</Form.Label>
+              <Form.Label>Project description</Form.Label>
               <Form.Control
                 required
                 value={input.desc}
@@ -79,19 +78,8 @@ function ModalButton({ showedit, product }) {
                 placeholder='Enter a description'
               />
             </Form.Group>
-            <Form.Group controlId='formGroupPrice'>
-              <Form.Label>Product price(TND)</Form.Label>
-              <Form.Control
-                required
-                value={input.price}
-                name='price'
-                onChange={handleInput}
-                type='text'
-                placeholder='Enter a price'
-              />
-            </Form.Group>
             <Form.Group controlId='formGroupImg'>
-              <Form.Label>Product image</Form.Label>
+              <Form.Label>Project image</Form.Label>
               <Form.Control
                 required
                 value={input.img}
@@ -101,23 +89,17 @@ function ModalButton({ showedit, product }) {
                 placeholder='Enter an image link'
               />
             </Form.Group>
-            {product ? (
-              <Form.Group controlId='formGroupStatus'>
-                <Form.Check
-                  type='switch'
-                  name='status'
-                  onChange={(e) => setInput({ ...input, status: e.target.checked })}
-                  label={input.status ? 'Product in Stock' : 'Product out of Stock'}
-                  checked={input.status}
-                />
-              </Form.Group>
-            ) : (
-              <></>
-            )}
+            <Form.Group>
+              <Form.File
+                id='exampleFormControlFile1'
+                onChange={handleFile}
+                label='Example file input'
+              />
+            </Form.Group>
             <Button variant='danger' onClick={() => setModalShow(false)}>
               Close
             </Button>
-            {product ? (
+            {project ? (
               <Button variant='success' type='submit'>
                 Edit
               </Button>
@@ -132,4 +114,4 @@ function ModalButton({ showedit, product }) {
     </>
   );
 }
-export default ModalButton;
+export default ModalProject;

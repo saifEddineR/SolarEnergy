@@ -8,10 +8,26 @@ const authMiddleware = require('../helpers/authMiddleware');
 // setting up ..
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-
+const multer = require('multer');
+// multer storage _________________________________________________________
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './img-uploads');
+  },
+  filename: function (req, file, cb) {
+    console.log('file: ', file);
+    cb(null, Date.now() + '-' + file.originalname);
+  },
+});
+var upload = multer({ storage: storage });
+router.post('/upload', upload.single('project'), function (req, res, next) {
+  res.send(req.file);
+});
 // POST a new project router (only superUser) ____________________________________________
-router.post('/', authMiddleware, (req, res) => {
-  let newProject = new Project({ ...req.body, owner: req.userId });
+router.post('/', [authMiddleware, upload.single('project')], (req, res) => {
+  let path = `${req.protocol}://${req.hostname}:5000/img-uploads/${req.file.filename}`;
+  let myBody = JSON.parse(req.body.data);
+  let newProject = new Project({ ...myBody, imgUpload: path });
   newProject
     .save()
     .then((project) => {

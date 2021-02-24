@@ -8,6 +8,7 @@ const ProjectSchema = new mongoose.Schema({
   title: String,
   img: String,
   desc: String,
+  imgUpload: String,
   CreatedAt: {
     type: Date,
     default: Date.now,

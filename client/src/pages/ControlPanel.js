@@ -1,15 +1,17 @@
 import '../css/control-panel.css';
+import '../css/products.css';
 import React, { useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import Products from '../Components/Products';
 import Projects from '../Components/Projects';
 import Services from '../Components/Services';
 import { useDispatch } from 'react-redux';
-import { getProducts, getProjects, getServices } from '../action/authActions';
+import { getProducts, getProjects, getServices, logoutUser } from '../action/authActions';
 // import from react-icons
 import { ImHome } from 'react-icons/im';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { IoLogoDropbox } from 'react-icons/io';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 import { GiAutoRepair } from 'react-icons/gi';
 
 // component duhh
@@ -40,8 +42,16 @@ const ControlPanel = () => {
           <GiAutoRepair />
           Services
         </Link>
+        <div className='nav_logout'>
+          <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
+            <span id='logout-icon'>
+              <RiLogoutBoxLine />
+            </span>
+            <span className='logout-text'>Logout</span>
+          </Link>
+        </div>
       </div>
-      <div>
+      <div className='control-content'>
         <Route exact path='/control-panel' component={Dashboard} />
         <Route path='/control-panel/products' component={Products} />
         <Route path='/control-panel/projects' component={Projects} />
@@ -54,7 +64,11 @@ const ControlPanel = () => {
 const Dashboard = () => {
   return (
     <div>
-      <p>dashboard here</p>
+      <div className='mini-navbar'>
+        <span>
+          <h3>Admin Dashboard</h3>
+        </span>
+      </div>
     </div>
   );
 };

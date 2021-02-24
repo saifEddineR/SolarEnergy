@@ -13,14 +13,7 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       {auth.isAuth ? (
-        <div className='nav_logout' >
-          <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
-            <span id='logout-icon'>
-              <RiLogoutBoxLine />
-            </span>
-            <span className='logout-text'>Logout</span>
-          </Link>
-        </div>
+        <></>
       ) : (
         <span>
           <Link to='/'>Home</Link>
