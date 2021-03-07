@@ -78,17 +78,6 @@ function ModalProject({ showedit, project }) {
                 placeholder='Enter a description'
               />
             </Form.Group>
-            <Form.Group controlId='formGroupImg'>
-              <Form.Label>Project image</Form.Label>
-              <Form.Control
-                required
-                value={input.img}
-                name='img'
-                onChange={handleInput}
-                type='text'
-                placeholder='Enter an image link'
-              />
-            </Form.Group>
             <Form.Group>
               <Form.File
                 id='exampleFormControlFile1'

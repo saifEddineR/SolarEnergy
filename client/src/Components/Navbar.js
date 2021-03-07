@@ -1,30 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/navbar.css';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from '../action/authActions';
-import { Button } from 'react-bootstrap';
-import { RiLogoutBoxLine } from 'react-icons/ri';
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBFormInline,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+} from 'mdbreact';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbarr = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
+  return <div className='navbar'>{auth.isAuth ? <></> : <NavBarClient />}</div>;
+};
+
+const NavBarClient = () => {
+  const [isOpen, setisOpen] = useState(false);
+  const toggleCollapse = (e) => {
+    setisOpen(!isOpen);
+  };
+
   return (
-    <div className='navbar'>
-      {auth.isAuth ? (
-        <></>
-      ) : (
-        <span>
-          <Link to='/'>Home</Link>
-          <Link to='/contact'>Contact</Link>
-          <Link to='/products'>Products</Link>
-          <Link to='/services'>Services</Link>
-          <Link to='/projects'>Projects</Link>
-        </span>
-      )}
-    </div>
+    <MDBNavbar color='indigo' dark expand='sm' className='bootstrap-nav'>
+      <MDBNavbarBrand>
+        <strong className='white-text'>Navbar</strong>
+      </MDBNavbarBrand>
+      <MDBNavbarToggler onClick={() => toggleCollapse()} />
+      <MDBCollapse id='navbarCollapse3' isOpen={isOpen} navbar>
+        <MDBNavbarNav left>
+          <MDBNavItem>
+            <MDBNavLink exact to='/'>
+              Home
+            </MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to='/products'>products</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to='/projects'>projects</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to='/services'>services</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to='/contact'>Contact</MDBNavLink>
+          </MDBNavItem>
+        </MDBNavbarNav>
+        <MDBNavbarNav right></MDBNavbarNav>
+      </MDBCollapse>
+    </MDBNavbar>
   );
 };
 
-export default Navbar;
+export default Navbarr;

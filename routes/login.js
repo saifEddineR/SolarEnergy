@@ -42,13 +42,13 @@ router.post(
     }
     User.findOne({ name: req.body.name }).then((user) => {
       if (!user) {
-        return res.status(404).json({ errors: [{ msg: 'please register first' }] });
+        return res.status(404).json({ errors: [{ msg: 'please register first !' }] });
       }
       bcrypt.compare(req.body.password, user.password, (err2, isMatch) => {
         if (err2) {
           console.log(err2);
         } else if (!isMatch) {
-          return res.json({ errors: [{ msg: 'wrong password !' }] });
+          return res.status(404).json({ errors: [{ msg: 'wrong password !' }] });
         } else {
           let payload = {
             userId: user._id,

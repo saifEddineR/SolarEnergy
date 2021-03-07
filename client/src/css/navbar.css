@@ -1,55 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
 .navbar {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 100px;
+  background-color: #3d81f5;
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  z-index: 99;
   width: 100%;
-  grid-gap: 20px;
-  background-color: black;
-}
-.navbar span {
-  text-decoration: none;
-  grid-column: 3/4;
-  display: flex;
-  color: black;
-  justify-content: space-around;
-}
-/* logout button */
-.nav_logout {
-  transform: scale(1.1);
-  grid-column: 4/5;
-}
-.navbar #logout {
-  justify-items: center;
-  align-items: center;
-  background-color: white;
-  height: 40px;
-  width: 43px;
-  display: flex;
-  transition: width 0.35s;
-  -webkit-transition: width 0.35s;
-  overflow: hidden;
-}
-
-#logout:hover {
-  width: 115px;
-  transform: scale(1.1);
-  text-decoration: none !important;
-}
-#logout:hover .logout-text {
-  color: white;
-  text-decoration: none !important;
-}
-.navbar #logout * {
-  color: black;
-}
-#logout-icon {
   margin: 0;
-  padding: 0 0 0 10px;
-  font-size: 22px;
 }
-.logout-text {
-  padding: 11px 15px;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 3px;
+.bootstrap-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#navbarCollapse3 {
+  grid-column: 3/4;
+}
+@media (max-width: 575px) {
+  #navbarCollapse3 {
+    grid-column: 1/2;
+  }
 }

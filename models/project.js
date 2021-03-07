@@ -6,7 +6,6 @@ const ProjectSchema = new mongoose.Schema({
   //   ref: 'user',
   // },
   title: String,
-  img: String,
   desc: String,
   imgUpload: String,
   CreatedAt: {

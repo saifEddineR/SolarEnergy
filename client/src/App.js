@@ -1,6 +1,7 @@
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -11,8 +12,16 @@ import Navbar from './Components/Navbar';
 import Login from './pages/Login';
 import PrivateRoute from './Components/PrivateRoute';
 import ControlPanel from './pages/ControlPanel';
+import { getProducts, getProjects, getServices } from './action/authActions';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+    dispatch(getProjects());
+    dispatch(getServices());
+  }, [dispatch]);
+
   const auth = useSelector((state) => state.auth.isAuth);
   return (
     <Router>
