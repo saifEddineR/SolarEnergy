@@ -10,6 +10,7 @@ import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Navbar from './Components/Navbar';
 import Login from './pages/Login';
+import Esteem from './Components/service_esteem/Esteem';
 import PrivateRoute from './Components/PrivateRoute';
 import ControlPanel from './pages/ControlPanel';
 import { getProducts, getProjects, getServices } from './action/authActions';
@@ -33,6 +34,7 @@ function App() {
         <Route exact path='/services' component={Services} />
         <Route exact path='/projects' component={Projects} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/esteem' component={Esteem} />
         <Route path='/control-panel'>
           <PrivateRoute component={ControlPanel} />
         </Route>

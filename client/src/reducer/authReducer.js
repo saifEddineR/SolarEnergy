@@ -10,15 +10,7 @@ import {
   GET_PRODUCTS,
   GET_PROJECTS,
   GET_SERVICES,
-  ADD_PRODUCTS,
-  ADD_PROJECTS,
-  ADD_SERVICES,
-  EDIT_PRODUCTS,
-  EDIT_PROJECTS,
-  EDIT_SERVICES,
-  DELETE_PRODUCTS,
-  DELETE_PROJECTS,
-  DELETE_SERVICES,
+  ESTEEM_DATA,
 } from '../action/types';
 let initState = {
   token: localStorage.getItem('token'),
@@ -27,6 +19,7 @@ let initState = {
   products: null,
   services: null,
   errors: null,
+  userEsteem: null,
 };
 
 const authReducer = (state = initState, { type, payload }) => {
@@ -58,6 +51,8 @@ const authReducer = (state = initState, { type, payload }) => {
       return { ...state, projects: payload };
     case GET_SERVICES:
       return { ...state, services: payload };
+    case ESTEEM_DATA:
+      return { ...state, userEsteem: payload };
     default:
       return state;
   }
