@@ -34,4 +34,12 @@ router.post('/', upload.array('photos', 10), (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+  Esteem.find()
+    .then((esteem) => res.send(esteem))
+    .catch((err) => {
+      console.log(err.message);
+      res.status(500).send({ msg: 'server error' });
+    });
+});
 module.exports = router;

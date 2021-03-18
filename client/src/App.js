@@ -12,8 +12,10 @@ import Navbar from './Components/Navbar';
 import Login from './pages/Login';
 import Esteem from './Components/service_esteem/Esteem';
 import PrivateRoute from './Components/PrivateRoute';
+import Result from './Components/service_esteem/Result';
 import ControlPanel from './pages/ControlPanel';
 import { getProducts, getProjects, getServices } from './action/authActions';
+import FooterHome from './Components/Home/FooterHome';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,10 +37,12 @@ function App() {
         <Route exact path='/projects' component={Projects} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/esteem' component={Esteem} />
+        <Route exact path='/result' component={Result} />
         <Route path='/control-panel'>
           <PrivateRoute component={ControlPanel} />
         </Route>
       </Switch>
+      {!auth ? <FooterHome /> : <></>}
     </Router>
   );
 }

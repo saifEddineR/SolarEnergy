@@ -11,6 +11,8 @@ import {
   GET_PROJECTS,
   GET_SERVICES,
   ESTEEM_DATA,
+  ESTEEM_ALL,
+  ESTEEM_SAVE_STORE,
 } from '../action/types';
 let initState = {
   token: localStorage.getItem('token'),
@@ -20,6 +22,7 @@ let initState = {
   services: null,
   errors: null,
   userEsteem: null,
+  allUserInfo: null,
 };
 
 const authReducer = (state = initState, { type, payload }) => {
@@ -44,14 +47,17 @@ const authReducer = (state = initState, { type, payload }) => {
         isAuth: false,
         errors: null,
       };
-    // get data cases ______________
+    // get data cases ________________
     case GET_PRODUCTS:
       return { ...state, products: payload };
     case GET_PROJECTS:
       return { ...state, projects: payload };
     case GET_SERVICES:
       return { ...state, services: payload };
-    case ESTEEM_DATA:
+    // cons esteem __________________
+    case ESTEEM_ALL:
+      return { ...state, allUserInfo: payload };
+    case ESTEEM_SAVE_STORE:
       return { ...state, userEsteem: payload };
     default:
       return state;

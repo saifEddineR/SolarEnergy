@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 
 const Slider = () => {
   return (
-    <Carousel>
+    <Carousel className='home-slider' >
       <Carousel.Item interval={4000}>
         <img
           className='d-block w-1'

@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Button, Grid, TextField } from '@material-ui/core';
 import { Form } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { esteemData } from '../../action/esteemAction';
+import { useDispatch } from 'react-redux';
+import { esteemData, saveEsteem } from '../../action/esteemAction';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function AddressForm() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [files, setFiles] = useState();
   const [userInput, setUserInput] = useState({
-    fName: '',
-    lName: '',
-    email: '',
-    phoneNumber: '',
-    addressCity: '',
-    addressLocation: '',
-    zipCode: '',
-    country: '',
-    refSTEG: '',
-    annualElecConsum: '',
-    roofDimentionL: '',
-    roofDimentionW: '',
+    fName: 'test',
+    lName: 'test',
+    email: 'test',
+    phoneNumber: '92452556',
+    addressCity: 'test',
+    addressLocation: 'test',
+    zipCode: '5000',
+    country: 'test',
+    refSTEG: '123456789',
+    annualElecConsum: '3500',
+    roofDimentionL: '20',
+    roofDimentionW: '20',
   });
   const changeInput = (e) => {
     if (e.target.name === 'roofImg') {
@@ -31,6 +33,7 @@ export default function AddressForm() {
   };
   const handleUserInput = (e) => {
     e.preventDefault();
+    dispatch({ type: 'ESTEEM_SAVE_STORE', payload: userInput });
     dispatch(esteemData(userInput, files));
     setUserInput({
       fName: '',
@@ -46,6 +49,7 @@ export default function AddressForm() {
       roofDimentionL: '',
       roofDimentionW: '',
     });
+    history.push('/result');
   };
 
   return (
@@ -81,6 +85,29 @@ export default function AddressForm() {
               fullWidth
             />
           </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id='phoneNumber'
+              name='phoneNumber'
+              label='phone number'
+              type='number'
+              value={userInput.phoneNumber}
+              onChange={changeInput}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id='email'
+              name='email'
+              label='email'
+              value={userInput.email}
+              onChange={changeInput}
+              fullWidth
+            />
+          </Grid>
           <Grid item xs={12}>
             <TextField
               required
@@ -108,6 +135,8 @@ export default function AddressForm() {
               required
               id='zipCode'
               name='zipCode'
+              type='number'
+              min='0'
               label='Zip / Postal code'
               value={userInput.zipCode}
               onChange={changeInput}
@@ -125,22 +154,24 @@ export default function AddressForm() {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <TextField
               required
               id='refSTEG'
               name='refSTEG'
               label='STEG ref'
+              type='number'
               value={userInput.refSTEG}
               onChange={changeInput}
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <TextField
               required
               id='annualElecConsum'
               name='annualElecConsum'
+              type='number'
               label='annual electricity consumption(Kwh)'
               value={userInput.annualElecConsum}
               onChange={changeInput}
@@ -152,6 +183,7 @@ export default function AddressForm() {
               required
               id='roofDimentionL'
               name='roofDimentionL'
+              type='number'
               label='roof dimention lengh(m)'
               value={userInput.roofDimentionL}
               onChange={changeInput}
@@ -163,6 +195,7 @@ export default function AddressForm() {
               required
               id='roofDimentionW'
               name='roofDimentionW'
+              type='number'
               label='roof dimention width(m)'
               value={userInput.roofDimentionW}
               onChange={changeInput}
@@ -170,17 +203,14 @@ export default function AddressForm() {
             />
           </Grid>
           <Grid item xs={12}>
-            <Form.File
-              name='roofImg'
-              value={userInput.roofImg}
-              onChange={changeInput}
-              multiple
-            />
+            <Form.File name='roofImg' onChange={changeInput} multiple />
           </Grid>
           <Grid item xs={12} md={12} col={10}>
+            {/* <Link to='/result'> */}
             <Button color='primary' type='submit' variant='contained'>
-              Calculate
+              calculate
             </Button>
+            {/* </Link> */}
           </Grid>
         </Grid>
       </form>

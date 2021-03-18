@@ -7,12 +7,14 @@ import Projects from '../Components/Projects';
 import Services from '../Components/Services';
 import { useDispatch } from 'react-redux';
 import { getProducts, getProjects, getServices, logoutUser } from '../action/authActions';
+import { getEsteem } from '../action/esteemAction';
 // import from react-icons
 import { ImHome } from 'react-icons/im';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { IoLogoDropbox } from 'react-icons/io';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import { GiAutoRepair } from 'react-icons/gi';
+import UserEsteem from '../Components/UserEsteem';
 
 // component duhh
 const ControlPanel = () => {
@@ -21,6 +23,7 @@ const ControlPanel = () => {
     dispatch(getProducts());
     dispatch(getProjects());
     dispatch(getServices());
+    dispatch(getEsteem());
   }, [dispatch]);
 
   return (
@@ -42,6 +45,10 @@ const ControlPanel = () => {
           <GiAutoRepair />
           Services
         </Link>
+        <Link className='control-link' to='/control-panel/userEsteem'>
+          <GiAutoRepair />
+          Users info
+        </Link>
         <div className='nav_logout'>
           <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
             <span id='logout-icon'>
@@ -56,6 +63,7 @@ const ControlPanel = () => {
         <Route path='/control-panel/products' component={Products} />
         <Route path='/control-panel/projects' component={Projects} />
         <Route path='/control-panel/services' component={Services} />
+        <Route path='/control-panel/userEsteem' component={UserEsteem} />
       </div>
     </div>
   );

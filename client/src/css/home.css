@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
+@media (max-width: 900px) {
+  .home-slider img {
+    height: 300px;
+  }
+  .home-slider h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .home-slider img {
+    height: 200px;
+  }
+  .home-slider h1 {
+    font-size: 20px;
+  }
+}
 .home-container {
   margin: 0;
   padding: 0;
@@ -59,6 +75,19 @@
   justify-content: center;
   justify-items: center;
 }
+@media (max-width: 900px) {
+  .boxbox {
+    color: black;
+    font-weight: 600;
+  }
+}
+@media (max-width: 576px) {
+  .boxbox {
+    grid-template-columns: 1fr;
+    color: black;
+    font-weight: 600;
+  }
+}
 .boxbox h5 {
   padding-bottom: 8px;
   width: 100%;
@@ -73,6 +102,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+@media (max-width: 900px) {
+  .projects-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 576px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
 }
 .projects-home h2 {
   color: #0051ff;

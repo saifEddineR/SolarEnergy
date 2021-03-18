@@ -1,35 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 .services-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  margin: 50px 20px;
 }
+/* @media (max-width: 1150px) {
+  .services-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .services-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 576px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+} */
 .ServiceCardPage {
-  box-shadow: 0 0 5px 1px grey;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 50px;
+  box-shadow: 0 0 5px 1px #2c94f5;
+  width: 100%;
   position: relative;
   text-align: center;
-  width: 300px;
-  height: 270px;
+  height: 300px;
+  padding: 0 30px;
+  background-color: rgba(44, 148, 245, 0.4);
 }
-
-.ServiceCardPage > span > img {
-  position: absolute;
-  top: 0%;
-  right: 0%;
+.ServiceCardPageR {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 50px;
+  box-shadow: 0 0 5px 1px #2c94f5;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.2;
+  position: relative;
+  text-align: center;
+  height: 300px;
+  padding: 0 30px;
 }
-.ServiceCardPage h5 {
+.serviceCard-commun > span {
+  align-self: center;
+  justify-self: center;
+  height: 90%;
+}
+.serviceCard-commun > span > img {
+  width: 100%;
+  height: 90%;
+}
+.serviceCard-commun h5 {
   font-family: 'Roboto', sans-serif;
   font-size: 22px;
   margin: 0 5px 10px 5px;
   padding: 15px 0 10px 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid darkgray;
 }
-.ServiceCardPage p {
+.serviceCard-commun p {
   font-family: 'Roboto', sans-serif;
   color: darkslategray;
   line-height: 30px;

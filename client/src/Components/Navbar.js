@@ -33,7 +33,7 @@ const NavBarClient = () => {
   return (
     <MDBNavbar color='indigo' dark expand='sm' className='bootstrap-nav'>
       <MDBNavbarBrand>
-        <strong className='white-text'>Navbar</strong>
+        <strong className='white-text'>SOLAR ENERGY</strong>
       </MDBNavbarBrand>
       <MDBNavbarToggler onClick={() => toggleCollapse()} />
       <MDBCollapse id='navbarCollapse3' isOpen={isOpen} navbar>

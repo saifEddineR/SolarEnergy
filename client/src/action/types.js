@@ -28,3 +28,5 @@ export const DELETE_PROJECTS = 'DELETE_PROJECTS';
 export const DELETE_SERVICES = 'DELETE_SERVICES';
 
 export const ESTEEM_DATA = 'ESTEEM_DATA';
+export const ESTEEM_ALL = 'ESTEEM_ALL';
+export const ESTEEM_SAVE_STORE = 'ESTEEM_SAVE_STORE';

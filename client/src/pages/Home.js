@@ -13,7 +13,6 @@ const Home = (props) => {
       <Intro />
       <ServicesHome />
       <ProjectsHome />
-      <FooterHome />
     </div>
   );
 };
