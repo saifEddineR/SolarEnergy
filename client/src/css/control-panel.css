@@ -36,12 +36,7 @@
   font-size: 25px;
   padding-right: 5px;
 }
-/* logout button */
-.nav_logout {
-  position: absolute;
-  /* margin-top: 50px; */
-  bottom: 10%;
-}
+
 /* dashboard content*/
 .control-content {
   padding-left: 10px;
@@ -49,6 +44,23 @@
 .userEsteem-container {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .userEsteem-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .userEsteem-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  .userEsteem-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

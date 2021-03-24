@@ -3,9 +3,11 @@ import '../css/products.css';
 import '../css/Sidebar.css';
 import React, { useEffect, useState } from 'react';
 import { Link, Route } from 'react-router-dom';
+//imported component
 import Products from '../Components/Products';
 import Projects from '../Components/Projects';
-import Services from '../Components/Services';
+import Dashboard from '../Components/Dashboard';
+// redux
 import { useDispatch } from 'react-redux';
 import { getProducts, getProjects, getServices, logoutUser } from '../action/authActions';
 import { getEsteem } from '../action/esteemAction';
@@ -34,37 +36,22 @@ const ControlPanel = () => {
 
   return (
     <div>
-      {/* <div className='control-sidebar'>
-        <Link className='control-link' to='/control-panel'>
-          <ImHome />
-          Dashboard
-        </Link>
-        <Link className='control-link' to='/control-panel/Products'>
-          <IoLogoDropbox />
-          Products
-        </Link>
-        <Link className='control-link' to='/control-panel/projects'>
-          <AiOutlineFundProjectionScreen />
-          Projects
-        </Link>
-        <Link className='control-link' to='/control-panel/userEsteem'>
-          <GiAutoRepair />
-          Users info
-        </Link>
-        <div className='nav_logout'>
-          <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
-            <span id='logout-icon'>
-              <RiLogoutBoxLine />
-            </span>
-            <span className='logout-text'>Logout</span>
-          </Link>
-        </div>
-      </div> */}
       <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar'>
+        <div className='navbar-ad'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div>
+            <h3 className='AD-title'>Admin Dashboard</h3>
+          </div>
+          <div className='nav_logout'>
+            <Link id='logout' onClick={() => dispatch(logoutUser())} to='/login'>
+              <span id='logout-icon'>
+                <RiLogoutBoxLine />
+              </span>
+              <span className='logout-text'>Logout</span>
+            </Link>
+          </div>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
@@ -105,18 +92,6 @@ const ControlPanel = () => {
         <Route path='/control-panel/products' component={Products} />
         <Route path='/control-panel/projects' component={Projects} />
         <Route path='/control-panel/userEsteem' component={UserEsteem} />
-      </div>
-    </div>
-  );
-};
-
-const Dashboard = () => {
-  return (
-    <div>
-      <div className='mini-navbar'>
-        <span>
-          <h3>Admin Dashboard</h3>
-        </span>
       </div>
     </div>
   );

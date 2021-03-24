@@ -9,7 +9,6 @@ const UserEsteem = () => {
       <div className='mini-navbar'>
         <span>
           <h3>User Input Info</h3>
-          {/* <ModalService showedit={false} /> */}
         </span>
       </div>
       <div className='userEsteem-container'>
