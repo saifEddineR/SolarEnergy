@@ -38,6 +38,22 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
 }
+@media (max-width: 1200px) {
+  .products-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 950px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .products-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
 /* product card */
 .card {
   width: 200px;
@@ -52,10 +68,9 @@
   color: white;
 }
 .name {
-  margin: 10px 0 0 0;
   padding: 0;
   font-size: 18px;
-  color: white;
+  color: black;
 }
 .desc {
   margin: 0;
@@ -66,7 +81,6 @@
 }
 .card img {
   border-radius: 50%;
-  margin-top: 15px;
   height: 120px;
   width: 120px;
   object-fit: cover;
@@ -112,4 +126,32 @@
 }
 .delete-btn {
   margin-left: 10px;
+}
+/* product admin dashboard card styling */
+.productAD-card {
+  width: 230px;
+  border: 1.5px solid grey;
+  text-align: center;
+  padding: 0 0 10px 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.productAD-card img {
+  width: 220px;
+  height: 200px;
+  border-bottom: 1px solid lightgray;
+}
+.productAD-card > h4 {
+  margin-top: 10px;
+}
+.productAD-card > h6 {
+  margin: 0;
+  padding: 5px 0 0 0;
+  color: rgb(168, 168, 168);
+  font-size: 12px;
+  height: 50px;
+}
+.productAD-card p {
+  margin: 0;
+  padding: 0;
 }

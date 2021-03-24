@@ -11,15 +11,8 @@ const UserEsteem = () => {
           <h3>User Input Info</h3>
           {/* <ModalService showedit={false} /> */}
         </span>
-        <MDBCol md='6'>
-          <MDBInput
-            hint='Search'
-            type='text'
-            containerClass='active-pink active-pink-2 mt-0 mb-3'
-          />
-        </MDBCol>
       </div>
-      <div className='products-container'>
+      <div className='userEsteem-container'>
         {allUserInfo ? (
           allUserInfo.map((esteem) => <UserCard key={esteem._id} {...esteem} />)
         ) : (
@@ -53,7 +46,7 @@ const UserCard = ({
       <img src={roofImg[0]} alt='project' />
       <span className='userInfo' style={{ margin: '0', paddingTop: '10px' }}>
         <h5>
-          client fullname:{fName} {lName}
+          {fName} {lName}
         </h5>
         <p>Email: {email} </p>
         <p> Phone number:{phoneNumber} </p>

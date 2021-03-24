@@ -14,13 +14,6 @@ const Projects = () => {
           <h3>Projects</h3>
           <ModalProject showedit={false} />
         </span>
-        <MDBCol md='6'>
-          <MDBInput
-            hint='Search'
-            type='text'
-            containerClass='active-pink active-pink-2 mt-0 mb-3'
-          />
-        </MDBCol>
       </div>
       <div className='products-container'>
         {projects
@@ -34,7 +27,7 @@ const Projects = () => {
 export const ProjectCard = ({ _id, title, desc, imgUpload, img }) => {
   const dispatch = useDispatch();
   return (
-    <div className='black card'>
+    <div className='productAD-card'>
       <span>
         <img src={imgUpload} alt='project' />
       </span>

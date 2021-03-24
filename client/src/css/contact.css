@@ -8,8 +8,10 @@
 }
 
 .contactForm {
-  margin-top: 50px;
+  margin: 50px auto;
+  width: 50%;
 }
+
 .contactForm h3 {
   color: var(--green);
   font-family: 'Open Sans', sans-serif;
@@ -86,9 +88,21 @@
   cursor: wait;
 }
 
+/* media query */
 @media (max-width: 768px) {
   .submit-message {
     width: 125px;
     margin-left: 200px;
+  }
+  .contactForm {
+    width: 80%;
+  }
+}
+@media (max-width: 350px) {
+  .contactForm {
+    width: 95%;
+  }
+  .contact-button {
+    margin-left: 70%;
   }
 }

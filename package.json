@@ -14,6 +14,7 @@
     "admin-bro": "^3.4.0",
     "admin-bro-expressjs": "^2.1.1",
     "bcrypt": "^5.0.0",
+    "cdbreact": "^1.1.0",
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

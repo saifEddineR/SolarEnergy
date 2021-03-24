@@ -8,7 +8,10 @@ const Services = () => {
   const services = useSelector((state) => state.auth.services);
   return (
     <div>
-      <h2>services</h2>
+      <div className='service-title'>
+        <h2>Services</h2>
+        <p>Audit, Monitoring, Diagnosis ...</p>
+      </div>
       <div className='services-container'>
         <div className='ServiceCardPage serviceCard-commun'>
           <span className='services-switch1'>
@@ -33,7 +36,7 @@ const Services = () => {
           </span>
         </div>
         <div className='ServiceCardPageR serviceCard-commun'>
-          <span>
+          <span className='services-switch2'>
             <h5>Energetic audience </h5>
             <p>
               An energy audit generally leads to the identification of the technical and
@@ -46,7 +49,7 @@ const Services = () => {
               technical advice and financial assistance. to investment.
             </p>
           </span>
-          <span>
+          <span className='services-switch1'>
             <img
               src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvT8bpHlhOwnN2ngfc51UdETS3hRth-31nIA&usqp=CAU'
               alt='service'
@@ -54,13 +57,13 @@ const Services = () => {
           </span>
         </div>
         <div className='ServiceCardPage serviceCard-commun'>
-          <span>
+          <span className='services-switch1'>
             <img
               src='https://cdn.infratec.eu/_processed_/f/3/csm_thermography-building-infratec-building-facade-04_be1e3d6322.jpg'
               alt='service'
             />
           </span>
-          <span>
+          <span className='services-switch2'>
             <h5>Thermal monitoring of buildings </h5>
             <p>
               The energy efficiency program in buildings aims to improve the thermal
@@ -74,7 +77,7 @@ const Services = () => {
           </span>
         </div>
         <div className='ServiceCardPageR serviceCard-commun'>
-          <span>
+          <span className='services-switch2'>
             <h5>Diagnosis of water systems </h5>
             <p>
               The purpose of the diagnosis of water systems is to identify the state of
@@ -83,7 +86,7 @@ const Services = () => {
               directions of supply management. in water.
             </p>
           </span>
-          <span>
+          <span className='services-switch1'>
             <img
               src='https://d1v1e13ebw3o15.cloudfront.net/data/32530/pool_and_spa_master/adobestock_102784556.jpg'
               alt='service'

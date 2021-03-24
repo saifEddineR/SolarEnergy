@@ -14,13 +14,6 @@ const Services = () => {
           <h3>Services</h3>
           <ModalService showedit={false} />
         </span>
-        <MDBCol md='6'>
-          <MDBInput
-            hint='Search'
-            type='text'
-            containerClass='active-pink active-pink-2 mt-0 mb-3'
-          />
-        </MDBCol>
       </div>
       <div className='products-container'>
         {services

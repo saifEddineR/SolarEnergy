@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
 import ModalButton from './Modal';
@@ -7,6 +7,7 @@ import { MDBInput, MDBCol } from 'mdbreact';
 
 const Products = () => {
   const products = useSelector((state) => state.auth.products);
+
   return (
     <>
       <div className='mini-navbar'>
@@ -14,13 +15,6 @@ const Products = () => {
           <h3>Products</h3>
           <ModalButton showedit={false} />
         </span>
-        <MDBCol md='6'>
-          <MDBInput
-            hint='Search'
-            type='text'
-            containerClass='active-pink active-pink-2 mt-0 mb-3'
-          />
-        </MDBCol>
       </div>
       <div className='products-container'>
         {products
@@ -34,16 +28,16 @@ const Products = () => {
 const ProductCard = ({ _id, name, img, price, desc, status }) => {
   const dispatch = useDispatch();
   return (
-    <div className='black card'>
+    <div className='productAD-card'>
       <span>
         <img src={img} alt='product' />
       </span>
-      <h4 className='name' style={status ? { color: 'white' } : { color: 'darkred' }}>
+      <h4 className='name' style={status ? { color: 'black' } : { color: 'darkred' }}>
         {name}
       </h4>
       <h6 className='desc'>{desc}</h6>
       <p className='user-email'>{price} TND</p>
-      <span className='buttons'>
+      <span>
         <button className='card-btn edit-btn'>
           <ModalButton
             showedit={true}
