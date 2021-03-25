@@ -13,6 +13,11 @@
   letter-spacing: 0.8px;
   font-weight: 500;
 }
+@media (max-width: 400px) {
+  .AD-title {
+    font-size: 15px;
+  }
+}
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;

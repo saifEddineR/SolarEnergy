@@ -23,20 +23,9 @@ const Result = () => {
     nPanelRow = length - 1;
     esteemPanel = Math.round((width / 1.6) * nPanelRow);
     esteemPower = esteemPanel * 0.375;
-    cost = xPanels * 700 + 4000;
-    console.log(cost);
+    cost = xPanels * 650 + 3000 + nPower * 400 + 500;
   }
 
-  // if (userEsteem) {
-  //   let lastE = userEsteem.length - 1;
-  //   console.log(userEsteem[lastE]);
-  // }
-  // userEsteem.map((esteem, index) => {
-  //     let date = new Date(esteem.CreatedAt);
-  //     let seconds = date.getTime();
-  //     console.log(seconds);
-  //     console.log(index);
-  // })
   return (
     <div className='resultPage'>
       <h3>esteem</h3>
@@ -45,7 +34,8 @@ const Result = () => {
         with a total nominal power of <span>{nPower} Kwp</span>
       </p>
       <p>
-        You can generate a total of <span>{nPower * 1.6} Kwp</span> Kwh yearly
+        You can generate a total of <span>{(nPower * 1.6).toFixed(2)} Kwp</span> Kwh
+        yearly
       </p>
       <p>
         Your roof can contain up to <span>{esteemPanel}</span> modules with a nominal

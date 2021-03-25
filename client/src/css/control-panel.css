@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
 .control-sidebar {
   grid-column: 1/2;
@@ -46,7 +47,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  justify-content: center;
+  justify-items: center;
 }
 
 @media (max-width: 1200px) {
@@ -63,4 +64,62 @@
   .userEsteem-container {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+/*dashboard boxes*/
+.AD-info-boxes {
+  width: 90%;
+  margin: 60px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .AD-info-boxes {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .AD-info-boxes {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+}
+.AD-info-box {
+  width: 300px;
+  height: 350px;
+  border: 2px solid #0a2e70;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+}
+.AD-info-box h2 {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+}
+.AD-info-box h5 {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #0e31a1;
+}
+.AD-info-lastest {
+  font-size: 18px;
+  font-family: sans-serif;
+  margin-top: 20px;
+}
+.AD-info-lastest h6 {
+  font-size: 20px;
+
+  margin: 0;
+  padding: 0;
+}
+.AD-info-lastest p {
+  margin: 0;
+  padding: 0;
+}
+.AD-info-lastest img {
+  position: absolute;
+  bottom: 2%;
+  left: calc(50% - 75px);
 }

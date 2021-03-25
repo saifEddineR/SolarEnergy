@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { MDBInput, MDBCol } from 'mdbreact';
+import { useSelector } from 'react-redux';
+import '../css/userEsteem.css';
 
 const UserEsteem = () => {
   const allUserInfo = useSelector((state) => state.auth.allUserInfo);
@@ -41,20 +41,27 @@ const UserCard = ({
   let d = new Date(CreatedAt);
   let date = `${d.getDay()} - ${d.getMonth()} - ${d.getFullYear()}`;
   return (
-    <div className='card-project'>
-      <img src={roofImg[0]} alt='project' />
-      <span className='userInfo' style={{ margin: '0', paddingTop: '10px' }}>
+    <div className='userEsteem-card'>
+      <span className='userEsteem-info' style={{ margin: '0', paddingTop: '10px' }}>
         <h5>
           {fName} {lName}
         </h5>
         <p>Email: {email} </p>
         <p> Phone number:{phoneNumber} </p>
         <p>
-          Full address: {addressCity} {addressLocation} {country}{' '}
+          Full address: {addressCity}, {addressLocation},{zipCode}, {country}{' '}
         </p>
         <p>ref STEG: {refSTEG} </p>
         <p>Annual Consumption: {annualElecConsum}Kwh</p>
+        <p>
+          Roof dimention: {roofDimentionL}mx{roofDimentionW}m
+        </p>
         <p>realised at : {CreatedAt} </p>
+        {roofImg.map((img, index) => (
+          <div>
+            <a href={img}> image{index + 1} </a>
+          </div>
+        ))}
       </span>
     </div>
   );

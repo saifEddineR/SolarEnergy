@@ -11,18 +11,18 @@ export default function AddressForm() {
   const dispatch = useDispatch();
   const [files, setFiles] = useState();
   const [userInput, setUserInput] = useState({
-    fName: 'test',
-    lName: 'test',
-    email: 'test',
-    phoneNumber: '92452556',
-    addressCity: 'test',
-    addressLocation: 'test',
-    zipCode: '5000',
-    country: 'test',
-    refSTEG: '123456789',
-    annualElecConsum: '3500',
-    roofDimentionL: '20',
-    roofDimentionW: '20',
+    fName: '',
+    lName: '',
+    email: '',
+    phoneNumber: '',
+    addressCity: '',
+    addressLocation: '',
+    zipCode: '',
+    country: '',
+    refSTEG: '',
+    annualElecConsum: '',
+    roofDimentionL: '',
+    roofDimentionW: '',
   });
   const changeInput = (e) => {
     if (e.target.name === 'roofImg') {
