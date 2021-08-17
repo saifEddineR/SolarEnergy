@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
-    "start": "concurrently \"npm run server\" \"cd client && npm start\""
+    "start": "concurrently \"npm run server\" \"cd client && npm start\"",
+    "client":"npm start"
   },
   "keywords": [],
   "author": "",
